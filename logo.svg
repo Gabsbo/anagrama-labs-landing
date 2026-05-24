@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 48" fill="none" role="img" aria-label="Anagrama Labs">
+  <title>Anagrama Labs</title>
+  <!-- Bracket left -->
+  <path d="M4 4L4 24L4 44" stroke="#0A0A09" stroke-width="2" stroke-linecap="square"/>
+  <path d="M4 4L14 4" stroke="#0A0A09" stroke-width="2" stroke-linecap="square"/>
+  <path d="M4 44L14 44" stroke="#0A0A09" stroke-width="2" stroke-linecap="square"/>
+  <!-- A -->
+  <line x1="19" y1="42" x2="30" y2="7" stroke="#0A0A09" stroke-width="2" stroke-linecap="square"/>
+  <line x1="30" y1="7" x2="41" y2="42" stroke="#0A0A09" stroke-width="2" stroke-linecap="square"/>
+  <line x1="23" y1="28" x2="37" y2="28" stroke="#0A0A09" stroke-width="2" stroke-linecap="square"/>
+  <!-- Bracket right -->
+  <path d="M46 4L46 24L46 44" stroke="#0A0A09" stroke-width="2" stroke-linecap="square"/>
+  <path d="M46 4L36 4" stroke="#0A0A09" stroke-width="2" stroke-linecap="square"/>
+  <path d="M46 44L36 44" stroke="#0A0A09" stroke-width="2" stroke-linecap="square"/>
+  <!-- Wordmark -->
+  <text x="60" y="22" font-family="'DM Sans', system-ui, sans-serif" font-size="16" font-weight="500" fill="#0A0A09" letter-spacing="-0.02em">Anagrama</text>
+  <text x="61" y="38" font-family="'DM Sans', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#0A0A09" opacity="0.4" letter-spacing="0.2em">LABS</text>
+</svg>
