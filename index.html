@@ -84,7 +84,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 4rem 3rem;
+      padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 5vw, 5rem);
       border-bottom: 1px solid var(--line);
       position: relative;
       overflow: hidden;
@@ -103,7 +103,7 @@
       flex-direction: column;
       align-items: flex-start;
       width: 100%;
-      max-width: 680px;
+      max-width: 640px;
       position: relative;
     }
     .hero-right {
@@ -111,19 +111,25 @@
       flex-direction: column;
       align-items: flex-start;
       text-align: left;
-      gap: 1.75rem;
-      max-width: 600px;
+      gap: clamp(1rem, 2.5vw, 1.75rem);
       width: 100%;
     }
 
     .hero-headline {
       font-family: var(--serif);
-      font-size: clamp(2.25rem, 5vw, 5rem);
+      font-size: clamp(1.25rem, 2.8vw, 2.25rem);
       font-weight: 400;
-      line-height: 1.0;
-      letter-spacing: -0.03em;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
     .hero-headline em { font-style: italic; }
+    .hero-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      margin-bottom: clamp(1.25rem, 3vw, 2rem);
+    }
 
     #hero-svg { overflow: visible; font-family: 'DM Sans', sans-serif; }
 
@@ -143,7 +149,7 @@
       width: 100%;
     }
 
-    .hero-ctas { display: flex; align-items: center; gap: 1rem; justify-content: flex-start; align-self: flex-start; }
+    .hero-ctas { display: flex; align-items: center; gap: 1rem; justify-content: flex-start; }
 
     .cta-primary {
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
@@ -456,40 +462,45 @@
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 900px) {
-      nav { padding: 1.5rem; }
-      .hero { padding: 3rem 1.5rem 3rem; }
-      .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-      .definition { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
-      .def-orozco { display: none; }
-      .pillars-header { flex-direction: column; gap: 0.5rem; padding: 3rem 1.5rem; }
-      .pillar-row { grid-template-columns: 32px 1fr; padding: 2.5rem 1.5rem; gap: 1.5rem; }
-      .pillar-desc { grid-column: 2; }
-      .pillar-row::after { display: none; }
-      .who-header { grid-template-columns: 1fr; }
-      .who-title { border-right: none; border-bottom: 1px solid var(--line); padding: 3rem 1.5rem; }
-      .who-intro { padding: 2.5rem 1.5rem; }
-      .who-grid { grid-template-columns: 1fr; }
-      .who-card { border-right: none; border-bottom: 1px solid var(--line); padding: 2.5rem 1.5rem; }
-      .who-card:last-child { border-bottom: none; }
-      .events-header { flex-direction: column; gap: 0.5rem; padding: 3rem 1.5rem; }
-      .event-card { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 1.5rem; }
-      .events > div { padding: 1.5rem !important; }
-      .events-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+      nav { padding: 1.25rem 1.5rem; }
 
-    .boxes-grid { grid-template-columns: 1fr !important; }
-      .box.tall { min-height: 240px; grid-row: span 1; }
+      /* Hero */
+      .hero { padding: 3rem 1.5rem; }
+      .hero-content { max-width: 100%; }
+      .hero-logo-wrap { margin-bottom: 1.5rem; padding-bottom: 1.25rem; }
+      #hero-svg { width: 100%; max-width: 340px; height: auto; }
+      .hero-headline { font-size: clamp(1.75rem, 7vw, 2.75rem); }
+      .hero-desc { font-size: 0.9375rem; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .cta-primary, .cta-secondary { width: 100%; text-align: center; }
+
+      /* Sections */
+      .who-header { grid-template-columns: 1fr; }
+      .who-title { border-right: none; border-bottom: 1px solid var(--line); padding: 2.5rem 1.5rem; }
+      .who-intro { padding: 2rem 1.5rem; }
+      .who-grid { grid-template-columns: 1fr; padding: 0 1.5rem 1.5rem; }
+      .who-card { min-height: 220px; }
+
+      /* Boxes */
+      .pillars { padding: 1.5rem; }
+      .pillars-header { flex-direction: column; gap: 0.25rem; margin-bottom: 1rem; }
+      .boxes-grid { grid-template-columns: 1fr !important; }
+      .box.tall { grid-row: span 1; min-height: 200px; }
       .box.wide { grid-column: span 1; }
       .box { padding: 1.5rem; min-height: 0; }
-      .pillars { padding: 1.5rem; }
-      .pillars-header { margin-bottom: 1rem; }
-      .cta-block { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 1.5rem; }
-      .cta-circle { display: none; }
-      footer { padding: 2rem 1.5rem; }
+
+      /* Events */
+      .events > div { padding: 1.5rem !important; }
+      .events-grid { grid-template-columns: 1fr; }
+
+      /* CTA */
+      .cta-block { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+      .cta-buttons { flex-direction: column; }
+      .cta-buttons .cta-primary,
+      .cta-buttons .cta-secondary { width: 100%; text-align: center; }
+
+      /* Footer */
+      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; }
     }
   </style>
 </head>
@@ -522,7 +533,7 @@
   <div class="hero-content">
     <div class="hero-right">
       <div class="hero-logo-wrap">
-        <svg id="hero-svg" width="420" height="64" viewBox="0 0 420 64">
+        <svg id="hero-svg" viewBox="0 0 420 64" style="width:100%;max-width:min(600px, 90vw);height:auto;">
           <text id="h-lb"   y="44" font-size="32" font-weight="400" fill="#0D0D0B" opacity="0">[</text>
           <text id="h-cyc"  y="44" text-anchor="middle" font-size="30" font-weight="500" fill="#0D0D0B" opacity="0"/>
           <text id="h-wm"   y="44" text-anchor="middle" font-size="30" font-weight="500" letter-spacing=".04em" fill="#0D0D0B" opacity="0">ANAGRAMA</text>
@@ -552,7 +563,8 @@
 <!-- DEFINITION -->
 
 
-<!-- WHAT WE DO / WORKSTREAMS -->
+<!-- PILLARS -->
+<!-- QUÉ HACEMOS / WORKSTREAMS -->
 <section class="pillars" id="what">
   <div class="pillars-header">
     <h2 class="pillars-title">What we do.</h2>
@@ -561,17 +573,15 @@
 
   <div class="boxes-grid">
 
-    <!-- 01 Events — tall, left -->
     <div class="box tall reveal">
       <div>
         <span class="box-num">01 — Active</span>
         <h3 class="box-title">Curated<br>Events</h3>
-        <p class="box-body">Experiences that put the right people in the same room. Each event is a chapter in a larger narrative — designed to generate real conversations, connections, and deals.</p>
+        <p class="box-body">We produce and curate experiences that put the right people in the same room. Each event is a chapter in a larger narrative.</p>
       </div>
       <a href="https://lu.ma/n1i32t84?tk=khvigQ" target="_blank" rel="noopener" class="box-active">↳ Marketers in the Arena × Stellar · CDMX · June 17</a>
     </div>
 
-    <!-- 02 Residency -->
     <div class="box reveal">
       <div>
         <span class="box-num">02</span>
@@ -581,20 +591,18 @@
       <span class="box-tag">Launching Sep 2026</span>
     </div>
 
-    <!-- 03 Partnerships -->
     <div class="box reveal">
       <div>
         <span class="box-num">03</span>
         <h3 class="box-title">Strategic<br>Partnerships</h3>
-        <p class="box-body">We connect institutions, corporates, and foundations with the builders solving their hardest problems.</p>
+        <p class="box-body">Conectamos instituciones, corporativos y fundaciones con los builders que resuelven sus problemas más difíciles.</p>
       </div>
     </div>
 
-    <!-- 04 Intelligence — wide, bottom -->
     <div class="box wide reveal">
       <div>
         <span class="box-num">04</span>
-        <h3 class="box-title">Ecosystem Intelligence</h3>
+        <h3 class="box-title">Inteligencia de Ecosistema</h3>
         <p class="box-body">Market & Policy Intelligence for decision-makers at the frontier of emerging technology in Mexico — regulatory analysis, ecosystem mapping, and briefings at the intersection of the Clarity Act and virtual asset regulation.</p>
       </div>
       <span class="box-tag">First report Q3 2026</span>
@@ -604,18 +612,9 @@
 </section>
 
 <!-- WHO -->
-
 <section class="who" id="who">
 
 
-  <!-- Atomists top-left of who section -->
-  <svg aria-hidden="true" style="position:absolute;left:-2rem;top:50%;transform:translateY(-50%);opacity:0.06;pointer-events:none;" width="200" height="200" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="95" fill="none" stroke="#0D0D0B" stroke-width="1.5"/>
-    <circle cx="100" cy="100" r="70" fill="none" stroke="#0D0D0B" stroke-width="1.5"/>
-    <circle cx="100" cy="100" r="45" fill="none" stroke="#0D0D0B" stroke-width="1.5"/>
-    <circle cx="100" cy="100" r="20" fill="none" stroke="#0D0D0B" stroke-width="1.5"/>
-    <circle cx="100" cy="100" r="4"  fill="#3BBFAD" opacity="0.6"/>
-  </svg>
 
   <div class="who-header">
     <h2 class="who-title reveal">Who's in<br>the room.</h2>
@@ -647,11 +646,8 @@
       <h2 class="pillars-title">Upcoming events.</h2>
       <span class="pillars-count">CDMX</span>
     </div>
-
-    <div class="events-grid">
-
-      <!-- Event main box -->
-      <div class="box reveal" style="min-height:280px;border:1px solid var(--black);border-radius:16px;">
+    <div class="events-grid" style="grid-template-columns:1fr;">
+      <div class="box reveal" style="min-height:280px;">
         <div>
           <span class="box-num">Jun 17 · 10:00–16:00</span>
           <h3 class="box-title">Marketers in the Arena: CDMX</h3>
@@ -659,32 +655,6 @@
         </div>
         <a href="https://lu.ma/n1i32t84?tk=khvigQ" target="_blank" rel="noopener" class="box-active">↳ Register on Luma →</a>
       </div>
-
-      <!-- Event details box -->
-      <div class="box reveal" style="min-height:280px;border:1px solid var(--black);border-radius:16px;">
-        <div style="display:flex;flex-direction:column;gap:1.25rem;">
-          <div>
-            <span class="box-num">Venue</span>
-            <p class="box-body" style="margin-top:0;">Universidad de la Libertad<br>Ciudad de México</p>
-          </div>
-          <div>
-            <span class="box-num">Hosts</span>
-            <p class="box-body" style="margin-top:0;">Stellar × Myosin × Catalaxia</p>
-          </div>
-          <div>
-            <span class="box-num">Who's in the room</span>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:0.5rem;">
-              <span class="box-tag">Founders</span>
-              <span class="box-tag">Marketers</span>
-              <span class="box-tag">Ecosystem builders</span>
-              <span class="box-tag">Crypto · Fintech</span>
-              <span class="box-tag">Growth operators</span>
-              <span class="box-tag">LATAM</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -692,7 +662,6 @@
 <!-- CTA -->
 <section class="cta-block" id="apply">
   <div class="cta-circle"></div>
-
   <h2 class="cta-headline reveal">If you belong<br>here, <em>you know.</em></h2>
   <div class="cta-right reveal">
     <p class="cta-body">Anagrama Labs works with institutions, foundations, and corporates that want to connect with the builders of emerging technology in Mexico and LATAM — and need someone who knows how to make it happen.</p>
