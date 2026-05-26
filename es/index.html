@@ -80,9 +80,11 @@
     /* ── HERO ────────────────────────────────────────── */
     .hero {
       min-height: 100svh;
-      display: grid;
-      grid-template-rows: auto auto;
-      padding: 4rem 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 3rem;
       border-bottom: 1px solid var(--line);
       position: relative;
       overflow: hidden;
@@ -98,15 +100,18 @@
 
     .hero-content {
       display: flex;
-      align-items: end;
-      gap: 4rem;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
       position: relative;
     }
     .hero-right {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
       gap: 1.75rem;
-      max-width: 560px;
+      max-width: 600px;
     }
 
     .hero-headline {
@@ -135,18 +140,18 @@
     .hero-bottom {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      position: relative;
+      justify-content: center;
       padding-top: 2rem;
+      width: 100%;
     }
 
-    .hero-ctas { display: flex; align-items: center; gap: 1rem; }
+    .hero-ctas { display: flex; align-items: center; gap: 1rem; justify-content: flex-start; align-self: flex-start; }
 
     .cta-primary {
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
       color: var(--bg); background: var(--black);
       text-decoration: none; padding: 0.875rem 1.75rem;
-      transition: opacity 0.2s;
+      border-radius: 99px; transition: opacity 0.2s;
     }
     .cta-primary:hover { opacity: 0.7; }
 
@@ -154,7 +159,7 @@
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
       color: var(--gray); text-decoration: none;
       border: 1px solid rgba(13,13,11,0.2); padding: 0.875rem 1.75rem;
-      transition: color 0.15s, border-color 0.15s;
+      border-radius: 99px; transition: color 0.15s, border-color 0.15s;
     }
     .cta-secondary:hover { color: var(--teal); border-color: var(--teal); }
 
@@ -429,7 +434,7 @@
     .cta-headline em { font-style: italic; color: var(--teal); }
     .cta-right { display: flex; flex-direction: column; gap: 1.5rem; position: relative; }
     .cta-body { font-size: 0.9375rem; font-weight: 300; line-height: 1.8; color: var(--gray); }
-    .cta-buttons { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; margin-top: 0.5rem; }
+    .cta-buttons { display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 0.5rem; }
 
     /* ── FOOTER ──────────────────────────────────────── */
     footer {
