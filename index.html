@@ -4,267 +4,472 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anagrama Labs</title>
-  <meta name="description" content="The connective tissue between the people, institutions, and capital shaping frontier technology in Latin America.">
+  <meta name="description" content="A think-and-do tank for emerging technology in Mexico and LATAM.">
   <meta property="og:title" content="Anagrama Labs">
-  <meta property="og:description" content="An innovation network operating as infrastructure — the layer that makes cooperation between builders, institutions, capital, and industry possible.">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><text y='38' font-family='DM Sans,sans-serif' font-size='40' font-weight='400' fill='%23DDE0E6'>[A]</text></svg>">
+  <meta property="og:description" content="Events, residencies, partnerships, and ecosystem intelligence for the frontier of technology in Latin America.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><text y='38' font-family='DM Sans,sans-serif' font-size='40' font-weight='400' fill='%230D0D0B'>[A]</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #141518;
-      --surface:  #1E2026;
-      --text:     #DDE0E6;
-      --muted:    #6A6D78;
-      --line:     rgba(221,224,230,0.07);
-      --line-mid: rgba(221,224,230,0.12);
-      --accent:   #8899AA;
-      --teal:     #3BBFAD;
-      --serif:    'Playfair Display', Georgia, serif;
-      --sans:     'DM Sans', system-ui, sans-serif;
+      --bg:     #F0EDE8;
+      --black:  #0D0D0B;
+      --gray:   #6A6860;
+      --line:   rgba(13,13,11,0.1);
+      --teal:   #3BBFAD;
+      --serif:  'Playfair Display', Georgia, serif;
+      --sans:   'DM Sans', system-ui, sans-serif;
     }
 
     html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      color: var(--text);
+      color: var(--black);
       font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      cursor: default;
     }
 
-    /* ── NAV ──────────────────────────── */
+    /* ── OROZCO ELEMENTS ─────────────────────────────── */
+    /* Scattered geometric shapes inspired by Gabriel Orozco */
+    .orozco-circle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .orozco-grid {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.08;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.75rem 3rem; gap: 2rem;
+      padding: 1.75rem 3rem;
       transition: background 0.4s, border-color 0.4s;
       border-bottom: 1px solid transparent;
     }
     nav.scrolled {
-      background: rgba(20,21,24,0.92);
+      background: rgba(240,237,232,0.92);
       backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
       border-color: var(--line);
     }
     .nav-logo {
       display: flex; align-items: baseline; flex-shrink: 0;
-      text-decoration: none; color: var(--text); font-family: var(--sans);
-      transition: opacity 0.15s;
+      text-decoration: none; color: var(--black);
+      font-family: var(--sans); transition: opacity 0.15s;
     }
-    .nav-logo:hover { opacity: 0.55; }
-    .nl-br { font-size: 0.9375rem; font-weight: 400; line-height: 1; }
-    .nl-wm { font-size: 0.875rem;  font-weight: 500; letter-spacing: 0.04em; line-height: 1; }
-    .nl-lb { font-size: 0.625rem;  font-weight: 700; color: var(--teal); margin-left: 4px; align-self: center; }
-    .nav-links { display: flex; align-items: center; gap: 2rem; flex-shrink: 0; }
-    .nav-link { font-size: 0.8125rem; font-weight: 300; color: var(--muted); text-decoration: none; transition: color 0.15s; white-space: nowrap; }
-    .nav-link:hover { color: var(--teal); }
-    .nav-contact { font-size: 0.8125rem; font-weight: 300; color: var(--muted); text-decoration: none; transition: color 0.15s; white-space: nowrap; flex-shrink: 0; }
+    .nav-logo:hover { opacity: 0.5; }
+    .nl-br { font-size: 0.9375rem; font-weight: 400; }
+    .nl-wm { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em; }
+    .nl-lb { font-size: 0.625rem; font-weight: 700; color: var(--teal); margin-left: 4px; align-self: center; }
+    .nav-contact {
+      font-size: 0.8125rem; font-weight: 300; color: var(--gray);
+      text-decoration: none; transition: color 0.15s;
+    }
     .nav-contact:hover { color: var(--teal); }
 
-    /* ── HERO ─────────────────────────── */
+    /* ── HERO ────────────────────────────────────────── */
     .hero {
       min-height: 100svh;
-      display: flex; flex-direction: column;
-      justify-content: space-between;
-      padding: 0 3rem 4rem;
+      display: grid;
+      grid-template-rows: auto auto;
+      padding: 4rem 3rem 4rem;
       border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
     }
-    .hero-center {
-      flex: 1; display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 2.75rem; text-align: center; padding-top: 5rem;
+
+    /* Orozco-inspired SVG background — overlapping circles like "Atomists" */
+    .hero-orozco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 1;
     }
-    .hero-logo-wrap { display: flex; align-items: center; justify-content: center; }
+
+    .hero-content {
+      display: flex;
+      align-items: end;
+      gap: 4rem;
+      position: relative;
+    }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      max-width: 560px;
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 5vw, 5rem);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+    }
+    .hero-headline em { font-style: italic; }
+
     #hero-svg { overflow: visible; font-family: 'DM Sans', sans-serif; }
+
     .hero-desc {
-      font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
-      font-weight: 300; line-height: 1.78;
-      color: var(--muted); max-width: 50ch;
+      font-size: clamp(0.875rem, 1.1vw, 1rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--gray);
+      max-width: 38ch;
     }
+
     .hero-bottom {
-      display: flex; align-items: center;
-      justify-content: center; padding-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      padding-top: 2rem;
     }
-    .hero-ctas { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+
+    .hero-ctas { display: flex; align-items: center; gap: 1rem; }
 
     .cta-primary {
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
-      color: var(--bg); background: var(--text);
+      color: var(--bg); background: var(--black);
       text-decoration: none; padding: 0.875rem 1.75rem;
-      letter-spacing: 0.01em; transition: opacity 0.2s;
+      transition: opacity 0.2s;
     }
-    .cta-primary:hover { opacity: 0.75; }
+    .cta-primary:hover { opacity: 0.7; }
+
     .cta-secondary {
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
-      color: var(--muted); text-decoration: none;
-      border: 1px solid rgba(221,224,230,0.18); padding: 0.875rem 1.75rem;
-      letter-spacing: 0.01em;
+      color: var(--gray); text-decoration: none;
+      border: 1px solid rgba(13,13,11,0.2); padding: 0.875rem 1.75rem;
       transition: color 0.15s, border-color 0.15s;
     }
     .cta-secondary:hover { color: var(--teal); border-color: var(--teal); }
 
-    /* ── META BAR ─────────────────────── */
-    .meta-bar { display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--line); }
-    .meta-item { padding: 2.5rem 3rem; border-right: 1px solid var(--line); }
-    .meta-item:last-child { border-right: none; }
-    .meta-num  { font-family: var(--serif); font-size: clamp(2.25rem,3.5vw,3.5rem); font-weight: 400; line-height: 1; margin-bottom: 0.5rem; color: var(--text); }
-    .meta-label { font-size: 0.75rem; font-weight: 300; color: var(--muted); letter-spacing: 0.04em; }
+    .hero-location {
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      opacity: 0.6;
+    }
 
-    /* ── DEFINITION ───────────────────── */
-    .definition { padding: 6rem 3rem; border-bottom: 1px solid var(--line); }
-    .definition-inner { display: grid; grid-template-columns: 1fr 1fr; }
-    .def-col { padding-right: 6rem; border-right: 1px solid var(--line); }
-    .def-col:last-child { padding-right: 0; padding-left: 6rem; border-right: none; }
+    /* ── DEFINITION ──────────────────────────────────── */
+    .definition {
+      padding: 7rem 3rem;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Orozco circle in definition — like "Yielding Stone" */
+    .def-orozco {
+      position: absolute;
+      right: -8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(13,13,11,0.07);
+      pointer-events: none;
+    }
+    .def-orozco::before {
+      content: '';
+      position: absolute;
+      inset: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(13,13,11,0.07);
+    }
+    .def-orozco::after {
+      content: '';
+      position: absolute;
+      inset: 80px;
+      border-radius: 50%;
+      border: 1px solid rgba(13,13,11,0.07);
+    }
+
+    .def-left {}
+
     .def-label {
-      font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 3rem;
+      font-size: 0.6875rem; font-weight: 400;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 2.5rem;
       display: flex; align-items: center; gap: 0.75rem;
     }
     .def-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
-    .def-not-list { list-style: none; }
+
     .def-not-item {
-      font-family: var(--serif); font-size: clamp(2rem,3vw,3.25rem);
-      font-weight: 400; line-height: 1.15; color: var(--muted);
-      text-decoration: line-through; text-decoration-color: rgba(106,109,120,0.5);
-      padding: 1.25rem 0; border-bottom: 1px solid var(--line);
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-weight: 400; line-height: 1.1;
       font-style: italic;
+      color: rgba(13,13,11,0.2);
+      text-decoration: line-through;
+      text-decoration-color: rgba(13,13,11,0.15);
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+      display: block;
     }
     .def-not-item:last-child { border-bottom: none; }
+
+    .def-right {}
+
     .def-statement {
-      font-family: var(--serif); font-size: clamp(1.5rem,2.2vw,2.25rem);
-      font-weight: 400; line-height: 1.35; color: var(--text); margin-bottom: 2rem;
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.2vw, 2.25rem);
+      font-weight: 400; line-height: 1.35;
+      margin-bottom: 2rem;
     }
     .def-statement em { font-style: italic; color: var(--teal); }
-    .def-body { font-size: 0.9375rem; font-weight: 300; line-height: 1.8; color: var(--muted); }
+    .def-body { font-size: 0.9375rem; font-weight: 300; line-height: 1.85; color: var(--gray); }
 
-    /* ── WHO ──────────────────────────── */
-    .who { border-bottom: 1px solid var(--line); }
-    .who-header { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+    /* ── WORKSTREAMS BOXES ───────────────────────────── */
+    .pillars { border-bottom: 1px solid var(--line); padding: 3rem; }
+    .pillars-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .pillars-title { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3.75rem); font-weight: 400; }
+    .pillars-count { font-size: 0.75rem; color: var(--gray); }
+
+    .boxes-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 10px;
+    }
+
+    .box {
+      background: var(--bg);
+      border: 1px solid var(--black);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      cursor: default;
+    }
+
+    .box:hover {
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .box:hover .box-num,
+    .box:hover .box-title,
+    .box:hover .box-body,
+    .box:hover .box-active,
+    .box:hover .box-tag { color: var(--black); border-color: var(--black); }
+
+    .box.tall { grid-row: span 2; min-height: 420px; }
+    .box.wide { grid-column: span 2; }
+
+    .box-num { font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.12em; color: var(--teal); margin-bottom: 1.25rem; display: block; transition: color 0.25s; }
+    .box-title { font-family: var(--serif); font-size: clamp(1.25rem,2vw,1.75rem); font-weight: 400; line-height: 1.1; color: var(--black); transition: color 0.25s; }
+    .box-body { font-size: 0.875rem; font-weight: 300; line-height: 1.7; color: var(--gray); margin-top: 0.75rem; transition: color 0.25s; }
+    .box-active { font-size: 0.75rem; font-weight: 500; color: var(--teal); margin-top: 1.5rem; display: block; transition: color 0.25s; text-decoration: none; }
+    .box-active:hover { text-decoration: underline; }
+    .box-tag { display: inline-block; font-size: 0.6875rem; padding: 0.3rem 0.75rem; border-radius: 99px; border: 1px solid rgba(13,13,11,0.2); color: var(--gray); margin-top: 1rem; transition: color 0.25s, border-color 0.25s; }
+
+    /* ── WHO ─────────────────────────────────────────── */
+    .who { border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+
+    .who-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--line);
+    }
     .who-title {
-      font-family: var(--serif); font-size: clamp(2rem,3.5vw,3.75rem);
-      font-weight: 400; line-height: 1.05; padding: 4rem 3rem;
-      border-right: 1px solid var(--line); color: var(--text);
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.75rem);
+      font-weight: 400; line-height: 1.05;
+      padding: 4rem 3rem;
+      border-right: 1px solid var(--line);
     }
-    .who-intro { font-size: 0.9375rem; font-weight: 300; line-height: 1.8; color: var(--muted); padding: 4rem 3rem; align-self: center; }
-    .who-grid  { display: grid; grid-template-columns: repeat(3,1fr); }
-    .who-card  { padding: 3.5rem 3rem; border-right: 1px solid var(--line); transition: background 0.25s; }
-    .who-card:hover { background: var(--surface); }
+    .who-intro {
+      font-size: 0.9375rem; font-weight: 300;
+      line-height: 1.8; color: var(--gray);
+      padding: 4rem 3rem; align-self: center;
+    }
+    .who-grid { display: grid; grid-template-columns: repeat(3,1fr); }
+    .who-card {
+      padding: 3.5rem 3rem;
+      border-right: 1px solid var(--line);
+      transition: background 0.25s;
+      position: relative;
+    }
+    .who-card:hover { background: rgba(13,13,11,0.03); }
     .who-card:last-child { border-right: none; }
-    .who-index { font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 2.5rem; display: block; }
-    .who-name  { font-family: var(--serif); font-size: clamp(1.625rem,2.2vw,2.25rem); font-weight: 400; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text); }
-    .who-desc  { font-size: 0.875rem; font-weight: 300; line-height: 1.85; color: var(--muted); }
-
-    /* ── WHAT ─────────────────────────── */
-    .what { border-bottom: 1px solid var(--line); }
-    .what-header { padding: 4rem 3rem; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; justify-content: space-between; }
-    .what-title  { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3.75rem); font-weight: 400; line-height: 1.05; color: var(--text); }
-    .what-count  { font-size: 0.75rem; color: var(--muted); font-weight: 300; }
-    .what-row {
-      display: grid; grid-template-columns: 48px 1fr 1fr;
-      align-items: start; padding: 3rem; border-bottom: 1px solid var(--line);
-      gap: 3rem; transition: background 0.2s;
+    .who-index {
+      font-size: 0.6875rem; font-weight: 400;
+      letter-spacing: 0.1em; color: var(--teal);
+      margin-bottom: 2.5rem; display: block;
     }
-    .what-row:last-child { border-bottom: none; }
-    .what-row:hover { background: var(--surface); }
-    .what-num  { font-family: var(--serif); font-size: 1rem; font-style: italic; color: var(--teal); padding-top: 0.2rem; }
-    .what-name { font-family: var(--serif); font-size: clamp(1.5rem,2.2vw,2.125rem); font-weight: 400; line-height: 1.1; color: var(--text); }
-    .what-desc { font-size: 0.9rem; font-weight: 300; line-height: 1.8; color: var(--muted); padding-top: 0.35rem; }
+    .who-name {
+      font-family: var(--serif);
+      font-size: clamp(1.625rem, 2.2vw, 2.25rem);
+      font-weight: 400; line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .who-desc { font-size: 0.875rem; font-weight: 300; line-height: 1.85; color: var(--gray); }
 
-    /* ── EVENTS ───────────────────────── */
+    /* ── EVENTS ──────────────────────────────────────── */
     .events { border-bottom: 1px solid var(--line); }
-    .events-header { padding: 4rem 3rem; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; justify-content: space-between; }
-    .events-title { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3.75rem); font-weight: 400; line-height: 1.05; color: var(--text); }
-    .events-label { font-size: 0.75rem; color: var(--muted); font-weight: 300; }
+    .events-header {
+      padding: 4rem 3rem; border-bottom: 1px solid var(--line);
+      display: flex; align-items: baseline; justify-content: space-between;
+    }
+    .events-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem,3.5vw,3.75rem);
+      font-weight: 400;
+    }
+    .events-label { font-size: 0.75rem; color: var(--gray); }
+
     .event-card {
       display: grid; grid-template-columns: 1fr 1fr;
       padding: 3.5rem 3rem; gap: 4rem; align-items: start;
       transition: background 0.2s;
     }
-    .event-card:hover { background: var(--surface); }
-    .event-name { font-family: var(--serif); font-size: clamp(1.75rem,3vw,3rem); font-weight: 400; line-height: 1.05; color: var(--text); margin-bottom: 2rem; }
+    .event-card:hover { background: rgba(13,13,11,0.025); }
+    .event-name {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem,3vw,3rem);
+      font-weight: 400; line-height: 1.05;
+      margin-bottom: 2rem;
+    }
     .event-meta { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
     .event-meta-row { display: flex; align-items: baseline; gap: 1.25rem; }
-    .event-meta-key { font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); min-width: 60px; }
-    .event-meta-val { font-size: 0.9375rem; font-weight: 300; color: var(--text); }
-    .event-meta-sub { font-size: 0.8125rem; font-weight: 300; color: var(--muted); }
-    .event-desc { font-size: 0.9rem; font-weight: 300; line-height: 1.8; color: var(--muted); margin-bottom: 2rem; }
+    .event-meta-key {
+      font-size: 0.6875rem; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--teal); min-width: 60px;
+    }
+    .event-meta-val { font-size: 0.9375rem; font-weight: 300; }
+    .event-meta-sub { font-size: 0.8125rem; font-weight: 300; color: var(--gray); }
+    .event-desc {
+      font-size: 0.9rem; font-weight: 300;
+      line-height: 1.8; color: var(--gray); margin-bottom: 2rem;
+    }
     .event-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
-    .event-tag { font-size: 0.6875rem; font-weight: 300; letter-spacing: 0.06em; padding: 0.3rem 0.75rem; border: 1px solid var(--line-mid); color: var(--muted); }
+    .event-tag {
+      font-size: 0.6875rem; font-weight: 300;
+      letter-spacing: 0.06em; padding: 0.3rem 0.75rem;
+      border: 1px solid rgba(13,13,11,0.15); color: var(--gray);
+    }
     .event-cta {
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
       color: var(--bg); background: var(--teal);
       text-decoration: none; padding: 0.875rem 1.75rem;
-      letter-spacing: 0.01em; transition: opacity 0.2s;
+      transition: opacity 0.2s;
     }
     .event-cta:hover { opacity: 0.8; }
 
-    @media (max-width: 900px) {
-      .events-header { flex-direction: column; gap: 0.5rem; padding: 3rem 1.5rem; }
-      .event-card { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 1.5rem; }
-    }
+    /* ── CTA ─────────────────────────────────────────── */
     .cta-block {
-      padding: 10rem 3rem; border-bottom: 1px solid var(--line);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+      padding: 10rem 3rem;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: center;
+      position: relative; overflow: hidden;
     }
-    .cta-headline { font-family: var(--serif); font-size: clamp(2.5rem,5vw,5.5rem); font-weight: 400; line-height: 1.02; letter-spacing: -0.02em; color: var(--text); }
+
+    /* Orozco large circle — like "La DS" wheel */
+    .cta-circle {
+      position: absolute;
+      right: -12rem; top: 50%;
+      transform: translateY(-50%);
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(13,13,11,0.06);
+      pointer-events: none;
+    }
+    .cta-circle::before {
+      content: '';
+      position: absolute;
+      inset: 50px;
+      border-radius: 50%;
+      border: 1px solid rgba(13,13,11,0.06);
+    }
+    .cta-circle::after {
+      content: '';
+      position: absolute;
+      inset: 140px;
+      border-radius: 50%;
+      background: rgba(59,191,173,0.04);
+      border-radius: 50%;
+    }
+
+    .cta-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem,5vw,5.5rem);
+      font-weight: 400; line-height: 1.02;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
     .cta-headline em { font-style: italic; color: var(--teal); }
-    .cta-right { display: flex; flex-direction: column; gap: 1.5rem; }
-    .cta-body  { font-size: 0.9375rem; font-weight: 300; line-height: 1.8; color: var(--muted); }
+    .cta-right { display: flex; flex-direction: column; gap: 1.5rem; position: relative; }
+    .cta-body { font-size: 0.9375rem; font-weight: 300; line-height: 1.8; color: var(--gray); }
     .cta-buttons { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; margin-top: 0.5rem; }
 
-    /* ── FOOTER ───────────────────────── */
-    footer { padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--line); }
-    .footer-logo { display: flex; align-items: baseline; font-family: var(--sans); color: var(--text); text-decoration: none; }
-    .fl-br { font-size: 1.5rem;   font-weight: 400; line-height: 1; }
-    .fl-wm { font-size: 1.375rem; font-weight: 500; letter-spacing: 0.04em; line-height: 1; }
-    .fl-lb { font-size: 0.875rem; font-weight: 700; color: var(--teal); margin-left: 8px; align-self: center; }
-    .footer-copy { font-size: 0.75rem; color: var(--muted); }
-    .footer-nav  { display: flex; gap: 2rem; }
-    .footer-nav a { font-size: 0.75rem; color: var(--muted); text-decoration: none; transition: color 0.15s; }
-    .footer-nav a:hover { color: var(--teal); }
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      padding: 2.5rem 3rem;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid var(--line);
+    }
+    .footer-copy { font-size: 0.75rem; color: var(--gray); }
 
-    /* ── REVEAL ───────────────────────── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    /* ── REVEAL ──────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE ───────────────────── */
+    /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 1.5rem; }
-      .hero { padding: 0 1.5rem 3rem; }
-      .hero-bottom { flex-direction: column; align-items: flex-start; }
-      .hero-ctas { align-items: flex-start; }
-      .meta-bar { grid-template-columns: 1fr 1fr; }
-      .meta-item:nth-child(2) { border-right: none; }
-      .meta-item { padding: 2rem 1.5rem; }
-      .definition { padding: 4rem 1.5rem; }
-      .definition-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .def-col { padding-right: 0; border-right: none; padding-left: 0; border-bottom: 1px solid var(--line); padding-bottom: 3rem; }
-      .def-col:last-child { border-bottom: none; }
+      .hero { padding: 3rem 1.5rem 3rem; }
+      .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .definition { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
+      .def-orozco { display: none; }
+      .pillars-header { flex-direction: column; gap: 0.5rem; padding: 3rem 1.5rem; }
+      .pillar-row { grid-template-columns: 32px 1fr; padding: 2.5rem 1.5rem; gap: 1.5rem; }
+      .pillar-desc { grid-column: 2; }
+      .pillar-row::after { display: none; }
       .who-header { grid-template-columns: 1fr; }
-      .who-title  { border-right: none; border-bottom: 1px solid var(--line); padding: 3rem 1.5rem; }
-      .who-intro  { padding: 2.5rem 1.5rem; }
-      .who-grid   { grid-template-columns: 1fr; }
-      .who-card   { border-right: none; border-bottom: 1px solid var(--line); padding: 2.5rem 1.5rem; }
+      .who-title { border-right: none; border-bottom: 1px solid var(--line); padding: 3rem 1.5rem; }
+      .who-intro { padding: 2.5rem 1.5rem; }
+      .who-grid { grid-template-columns: 1fr; }
+      .who-card { border-right: none; border-bottom: 1px solid var(--line); padding: 2.5rem 1.5rem; }
       .who-card:last-child { border-bottom: none; }
-      .what-header { flex-direction: column; gap: 0.5rem; padding: 3rem 1.5rem; }
-      .what-row { grid-template-columns: 32px 1fr; padding: 2.5rem 1.5rem; gap: 1.5rem; }
-      .what-desc { grid-column: 2; }
+      .events-header { flex-direction: column; gap: 0.5rem; padding: 3rem 1.5rem; }
+      .event-card { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 1.5rem; }
       .cta-block { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 1.5rem; }
+      .cta-circle { display: none; }
       footer { padding: 2rem 1.5rem; }
-      .nav-links { gap: 1.25rem; }
     }
-    @media (max-width: 520px) { .nav-link { display: none; } }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="nav">
   <a href="/" class="nav-logo" aria-label="Anagrama Labs">
     <span class="nl-br">[</span><span class="nl-wm">A</span><span class="nl-br">]</span><span class="nl-lb">Labs</span>
@@ -272,62 +477,129 @@
   <div style="display:flex;align-items:center;gap:1.5rem;">
     <a href="/es/" class="nav-contact" style="font-size:0.75rem;letter-spacing:0.1em;">ES</a>
     <a href="mailto:hello@anagramalabs.io" class="nav-contact">Contact</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+    <a href="https://x.com/anagramalabs" target="_blank" rel="noopener" aria-label="X" style="color:var(--gray);transition:color 0.15s;text-decoration:none;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L2.25 2.25h6.926l4.259 5.637L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+    </a>
+    <a href="https://linkedin.com/company/anagramalabs" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:var(--gray);transition:color 0.15s;text-decoration:none;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-center">
-    <div class="hero-logo-wrap">
-      <svg id="hero-svg" width="420" height="64" viewBox="0 0 420 64">
-        <text id="h-lb"   y="44" font-size="32" font-weight="400" fill="#DDE0E6" opacity="0">[</text>
-        <text id="h-cyc"  y="44" text-anchor="middle" font-size="30" font-weight="500" fill="#DDE0E6" opacity="0"/>
-        <text id="h-wm"   y="44" text-anchor="middle" font-size="30" font-weight="500" letter-spacing=".04em" fill="#DDE0E6" opacity="0">ANAGRAMA</text>
-        <text id="h-rb"   y="44" font-size="32" font-weight="400" fill="#DDE0E6" opacity="0">]</text>
-        <text id="h-labs" y="44" font-size="19" font-weight="700" fill="#3BBFAD" opacity="0">Labs</text>
-      </svg>
+
+
+
+  <div class="hero-content">
+    <div class="hero-right">
+      <div class="hero-logo-wrap">
+        <svg id="hero-svg" width="420" height="64" viewBox="0 0 420 64">
+          <text id="h-lb"   y="44" font-size="32" font-weight="400" fill="#0D0D0B" opacity="0">[</text>
+          <text id="h-cyc"  y="44" text-anchor="middle" font-size="30" font-weight="500" fill="#0D0D0B" opacity="0"/>
+          <text id="h-wm"   y="44" text-anchor="middle" font-size="30" font-weight="500" letter-spacing=".04em" fill="#0D0D0B" opacity="0">ANAGRAMA</text>
+          <text id="h-rb"   y="44" font-size="32" font-weight="400" fill="#0D0D0B" opacity="0">]</text>
+          <text id="h-labs" y="44" font-size="19" font-weight="700" fill="#3BBFAD" opacity="0">Labs</text>
+        </svg>
+      </div>
+      <h1 class="hero-headline">
+        We activate<br>ecosystems.<br><em>We make<br>things happen.</em>
+      </h1>
+      <p class="hero-desc">
+        Anagrama Labs is an <em style="font-style:italic;color:#3BBFAD;">ecosystem engine</em> for emerging technology in Mexico and LATAM. We produce events, residencies, partnerships, and ecosystem intelligence for the institutions that want to connect with the builders shaping the future.
+      </p>
     </div>
-    <p class="hero-desc">
-      We <span style="background:#3BBFAD;color:#141518;padding:0 4px;">activate ecosystems</span>, support founders building <span style="background:#3BBFAD;color:#141518;padding:0 4px;">at the edge of what's possible</span>, connect institutions with the talent to solve their hardest problems, and produce the intelligence that helps the ecosystem understand itself.
-    </p>
   </div>
+
   <div class="hero-bottom">
     <div class="hero-ctas">
       <a href="https://tally.so/r/J9WVB7" target="_blank" rel="noopener" class="cta-primary">Request access</a>
-      <a href="#what"  class="cta-secondary">Learn more</a>
+      <a href="#what" class="cta-secondary">Learn more</a>
     </div>
+    <span class="hero-location">Ciudad de México · LATAM</span>
+  </div>
+
+</section>
+
+<!-- DEFINITION -->
+
+
+<!-- WHAT WE DO / WORKSTREAMS -->
+<section class="pillars" id="what">
+  <div class="pillars-header">
+    <h2 class="pillars-title">What we do.</h2>
+    <span class="pillars-count">Active workstreams</span>
+  </div>
+
+  <div class="boxes-grid">
+
+    <!-- 01 Events — tall, left -->
+    <div class="box tall reveal">
+      <div>
+        <span class="box-num">01 — Active</span>
+        <h3 class="box-title">Curated<br>Events</h3>
+        <p class="box-body">Experiences that put the right people in the same room. Each event is a chapter in a larger narrative — designed to generate real conversations, connections, and deals.</p>
+      </div>
+      <a href="https://lu.ma/n1i32t84?tk=khvigQ" target="_blank" rel="noopener" class="box-active">↳ Marketers in the Arena × Stellar · CDMX · June 17</a>
+    </div>
+
+    <!-- 02 Residency -->
+    <div class="box reveal">
+      <div>
+        <span class="box-num">02</span>
+        <h3 class="box-title">Innovation<br>Residency</h3>
+        <p class="box-body">Blockchain + AI founders residency. 6 projects, 6 months. Top level mentorship.</p>
+      </div>
+      <span class="box-tag">Launching Sep 2026</span>
+    </div>
+
+    <!-- 03 Partnerships -->
+    <div class="box reveal">
+      <div>
+        <span class="box-num">03</span>
+        <h3 class="box-title">Strategic<br>Partnerships</h3>
+        <p class="box-body">We connect institutions, corporates, and foundations with the builders solving their hardest problems.</p>
+      </div>
+    </div>
+
+    <!-- 04 Intelligence — wide, bottom -->
+    <div class="box wide reveal">
+      <div>
+        <span class="box-num">04</span>
+        <h3 class="box-title">Ecosystem Intelligence</h3>
+        <p class="box-body">Market & Policy Intelligence for decision-makers at the frontier of emerging technology in Mexico — regulatory analysis, ecosystem mapping, and briefings at the intersection of the Clarity Act and virtual asset regulation.</p>
+      </div>
+      <span class="box-tag">First report Q3 2026</span>
+    </div>
+
   </div>
 </section>
 
-
-
-<section class="definition">
-  <div class="definition-inner">
-    <div class="def-col">
-      <p class="def-label">Not</p>
-      <ul class="def-not-list">
-        <li class="def-not-item reveal">A startup</li>
-        <li class="def-not-item reveal">An agency</li>
-        <li class="def-not-item reveal">A fund</li>
-      </ul>
-    </div>
-    <div class="def-col">
-      <p class="def-label">A new category</p>
-      <p class="def-statement reveal">An innovation network that operates as <em>infrastructure</em> — the layer that makes cooperation between builders, institutions, capital, and industry possible and productive.</p>
-      <p class="def-body reveal">Somewhere between the cultural infrastructure of Andreessen Horowitz, the institutional ambition of The Engine, and a well-curated private members club where the membership criterion is that you are building something that matters.</p>
-    </div>
-  </div>
-</section>
+<!-- WHO -->
 
 <section class="who" id="who">
+
+
+  <!-- Atomists top-left of who section -->
+  <svg aria-hidden="true" style="position:absolute;left:-2rem;top:50%;transform:translateY(-50%);opacity:0.06;pointer-events:none;" width="200" height="200" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="95" fill="none" stroke="#0D0D0B" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#0D0D0B" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="45" fill="none" stroke="#0D0D0B" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="20" fill="none" stroke="#0D0D0B" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="4"  fill="#3BBFAD" opacity="0.6"/>
+  </svg>
+
   <div class="who-header">
-    <h2 class="who-title reveal">Who's<br>here.</h2>
+    <h2 class="who-title reveal">Who's in<br>the room.</h2>
     <p class="who-intro reveal">Three distinct groups, all in the same place. Each brings something the others need. The value is in the proximity.</p>
   </div>
   <div class="who-grid">
     <div class="who-card reveal">
       <span class="who-index">01</span>
       <h3 class="who-name">Founders<br>Builders</h3>
-      <p class="who-desc">Technical, ambitious, operating at the intersection of crypto, fintech, AI, biotech, and emerging infrastructure. Not looking for another accelerator — looking for the right network, the right room, and the right introduction at the right moment.</p>
+      <p class="who-desc">Technical, ambitious, operating at the intersection of crypto, fintech, AI, biotech, and emerging infrastructure. Not looking for another accelerator — looking for the right room and the right introduction at the right moment.</p>
     </div>
     <div class="who-card reveal">
       <span class="who-index">02</span>
@@ -342,95 +614,81 @@
   </div>
 </section>
 
-<section class="what" id="what">
-  <div class="what-header">
-    <h2 class="what-title">What we do.</h2>
-    <span class="what-count">Four pillars</span>
-  </div>
-  <div class="what-row reveal">
-    <span class="what-num">i.</span>
-    <h3 class="what-name">Curated<br>Experiences</h3>
-    <p class="what-desc">We activate ecosystems through experiences designed to generate the conversations that matter, the connections that last, and the collaborations that produce real value at the frontier of knowledge and technology.</p>
-  </div>
-  <div class="what-row reveal">
-    <span class="what-num">ii.</span>
-    <h3 class="what-name">Founder<br>Support</h3>
-    <p class="what-desc">We support founders building at the edge of what's possible — not as a traditional accelerator, but as a network of context, access, and intelligence that accompanies them when they need it most.</p>
-  </div>
-  <div class="what-row reveal">
-    <span class="what-num">iii.</span>
-    <h3 class="what-name">Institutional<br>Bridge</h3>
-    <p class="what-desc">We connect corporates and governments with the talent to solve their hardest problems. We translate between the language of innovation and the language of the institution, making cooperation possible and productive.</p>
-  </div>
-  <div class="what-row reveal">
-    <span class="what-num">iv.</span>
-    <h3 class="what-name">Ecosystem<br>Intelligence</h3>
-    <p class="what-desc">We produce the intelligence that helps the ecosystem understand itself — analysis, narratives, and maps that reveal where friction lives, where opportunity is, and where the frontier is moving next.</p>
-  </div>
-</section>
-
+<!-- EVENTS -->
 <section class="events" id="events">
-  <div class="events-header">
-    <h2 class="events-title">Upcoming events.</h2>
-    <span class="events-label">CDMX</span>
-  </div>
-
-  <div class="event-card reveal">
-    <div>
-      <h3 class="event-name">Marketers in the Arena: CDMX</h3>
-      <div class="event-meta">
-        <div class="event-meta-row">
-          <span class="event-meta-key">Date</span>
-          <div>
-            <div class="event-meta-val">Wednesday, June 17</div>
-            <div class="event-meta-sub">10:00 – 16:00</div>
-          </div>
-        </div>
-        <div class="event-meta-row">
-          <span class="event-meta-key">Venue</span>
-          <div>
-            <div class="event-meta-val">Universidad de la Libertad</div>
-            <div class="event-meta-sub">Ciudad de México</div>
-          </div>
-        </div>
-        <div class="event-meta-row">
-          <span class="event-meta-key">Hosts</span>
-          <div class="event-meta-val">Stellar × Myosin × Catalaxia</div>
-        </div>
-      </div>
-      <a href="https://lu.ma/n1i32t84?tk=khvigQ" target="_blank" rel="noopener" class="event-cta">Register on Luma →</a>
+  <div style="padding:3rem;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.5rem;">
+      <h2 class="pillars-title">Upcoming events.</h2>
+      <span class="pillars-count">CDMX</span>
     </div>
 
-    <div>
-      <p class="event-desc">An intimate gathering for founders, marketers, ecosystem builders, and growth operators building at the intersection of crypto, fintech, and emerging technology. A room for sharp conversations, honest lessons, and practical insights from operators who understand that growth is not just about attention — it is about trust, distribution, community, and momentum.</p>
-      <div class="event-tags">
-        <span class="event-tag">Founders</span>
-        <span class="event-tag">Marketers</span>
-        <span class="event-tag">Ecosystem builders</span>
-        <span class="event-tag">Crypto · Fintech</span>
-        <span class="event-tag">Growth operators</span>
-        <span class="event-tag">LATAM</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+      <!-- Event main box -->
+      <div class="box reveal" style="min-height:280px;border:1px solid var(--black);border-radius:16px;">
+        <div>
+          <span class="box-num">Jun 17 · 10:00–16:00</span>
+          <h3 class="box-title">Marketers in the Arena: CDMX</h3>
+          <p class="box-body">An intimate gathering for founders, marketers, ecosystem builders, and growth operators at the intersection of crypto, fintech, and emerging technology.</p>
+        </div>
+        <a href="https://lu.ma/n1i32t84?tk=khvigQ" target="_blank" rel="noopener" class="box-active">↳ Register on Luma →</a>
       </div>
+
+      <!-- Event details box -->
+      <div class="box reveal" style="min-height:280px;border:1px solid var(--black);border-radius:16px;">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div>
+            <span class="box-num">Venue</span>
+            <p class="box-body" style="margin-top:0;">Universidad de la Libertad<br>Ciudad de México</p>
+          </div>
+          <div>
+            <span class="box-num">Hosts</span>
+            <p class="box-body" style="margin-top:0;">Stellar × Myosin × Catalaxia</p>
+          </div>
+          <div>
+            <span class="box-num">Who's in the room</span>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:0.5rem;">
+              <span class="box-tag">Founders</span>
+              <span class="box-tag">Marketers</span>
+              <span class="box-tag">Ecosystem builders</span>
+              <span class="box-tag">Crypto · Fintech</span>
+              <span class="box-tag">Growth operators</span>
+              <span class="box-tag">LATAM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta-block" id="apply">
-  <h2 class="cta-headline reveal">If you belong here,<br><em>you know.</em></h2>
+  <div class="cta-circle"></div>
+
+  <h2 class="cta-headline reveal">If you belong<br>here, <em>you know.</em></h2>
   <div class="cta-right reveal">
-    <p class="cta-body">Anagrama Labs operates by invitation and application. If you are building something at the frontier of technology in Latin America — as a founder, an institution, or an ecosystem connector — this is your room.</p>
-    <p class="cta-body">We operate as the infrastructure layer that connects the people building Latin America's future with those who can accelerate it.</p>
+    <p class="cta-body">Anagrama Labs works with institutions, foundations, and corporates that want to connect with the builders of emerging technology in Mexico and LATAM — and need someone who knows how to make it happen.</p>
+    <p class="cta-body">We activate ecosystems. We produce the events, residencies, and partnerships that turn intention into traction.</p>
     <div class="cta-buttons">
-      <a href="https://tally.so/r/J9WVB7" target="_blank" rel="noopener" class="cta-primary">Join the waitlist</a>
+      <a href="https://tally.so/r/J9WVB7" target="_blank" rel="noopener" class="cta-primary">Request access</a>
       <a href="https://tally.so/r/Xx289P" target="_blank" rel="noopener" class="cta-secondary">Propose a conversation</a>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-
   <span class="footer-copy">© 2026 Anagrama Labs</span>
-
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <a href="https://x.com/anagramalabs" target="_blank" rel="noopener" aria-label="X" style="color:var(--gray);transition:color 0.15s;text-decoration:none;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L2.25 2.25h6.926l4.259 5.637L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+    </a>
+    <a href="https://linkedin.com/company/anagramalabs" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:var(--gray);transition:color 0.15s;text-decoration:none;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
 </footer>
 
 <script>
@@ -473,11 +731,10 @@ function hpos(innerW){
   const total = bspan + LABS_GAP + LABSW;
   const sx    = SVG_CX - total/2;
   return {
-    lb:    sx,
-    rb:    sx + BW + innerW,
-    lx:    sx + bspan + LABS_GAP,
-    wmx:   sx + BW + innerW/2,
-    cyccx: sx + BW + innerW/2
+    lb: sx, rb: sx+BW+innerW,
+    lx: sx+bspan+LABS_GAP,
+    wmx: sx+BW+innerW/2,
+    cyccx: sx+BW+innerW/2
   };
 }
 
@@ -499,18 +756,15 @@ function hexpand(C,E,ms,cb){
     const p=Math.min((now-t0)/ms,1);
     const q=1-Math.pow(1-p,3);
     const l=(a,b)=>a+(b-a)*q;
-    hsx('h-lb',  l(C.lb, E.lb));
-    hsx('h-rb',  l(C.rb, E.rb));
-    hsx('h-labs',l(C.lx, E.lx));
-    hsx('h-wm',  E.wmx);
+    hsx('h-lb',l(C.lb,E.lb)); hsx('h-rb',l(C.rb,E.rb));
+    hsx('h-labs',l(C.lx,E.lx)); hsx('h-wm',E.wmx);
     p<1?requestAnimationFrame(tick):cb&&cb();
   })(performance.now());
 }
 
 function runHeroLogo(){
   hmeasure();
-  const C = hpos(LW + INNER_PAD*2);
-  const E = hpos(WW + INNER_PAD*2);
+  const C=hpos(LW+INNER_PAD*2), E=hpos(WW+INNER_PAD*2);
   hsx('h-lb',C.lb); hsx('h-rb',C.rb);
   hsx('h-cyc',C.cyccx); hsx('h-wm',E.wmx); hsx('h-labs',C.lx);
   ['h-lb','h-rb','h-cyc','h-wm','h-labs'].forEach(id=>hop(id,0));
@@ -528,7 +782,7 @@ function runHeroLogo(){
       hsx('h-cyc',C.cyccx);
       hfade('h-cyc',1,45,()=>{
         setTimeout(()=>hfade('h-cyc',0,45,()=>{ i++; next(); }),
-          i===WORD.length-1 ? 620 : 200);
+          i===WORD.length-1?620:200);
       });
     }
     next();
