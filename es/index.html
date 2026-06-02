@@ -57,15 +57,16 @@
       padding: 1.75rem 3rem;
       transition: background 0.4s, border-color 0.4s;
       border-bottom: 1px solid transparent;
+      background: #0D0D0B;
     }
     nav.scrolled {
-      background: rgba(240,237,232,0.92);
+      background: rgba(13,13,11,0.95);
       backdrop-filter: blur(16px);
-      border-color: var(--line);
+      border-color: rgba(240,237,232,0.08);
     }
     .nav-logo {
       display: flex; align-items: baseline; flex-shrink: 0;
-      text-decoration: none; color: var(--black);
+      text-decoration: none; color: #F0EDE8;
       font-family: var(--sans); transition: opacity 0.15s;
     }
     .nav-logo:hover { opacity: 0.5; }
@@ -86,9 +87,10 @@
       align-items: center;
       justify-content: center;
       padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 5vw, 5rem);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(240,237,232,0.1);
       position: relative;
       overflow: hidden;
+      background: #0D0D0B;
     }
 
     /* Orozco-inspired SVG background — overlapping circles like "Atomists" */
@@ -122,8 +124,9 @@
       font-weight: 400;
       line-height: 1.1;
       letter-spacing: -0.02em;
+      color: rgba(240,237,232,0.45);
     }
-    .hero-headline em { font-style: italic; }
+    .hero-headline em { font-style: italic; color: rgba(240,237,232,0.45); }
     .hero-logo-wrap {
       display: flex;
       align-items: center;
@@ -154,7 +157,7 @@
 
     .cta-primary {
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
-      color: var(--bg); background: var(--black);
+      color: #0D0D0B; background: #F0EDE8;
       text-decoration: none; padding: 0.875rem 1.75rem;
       border-radius: 0; transition: opacity 0.2s;
     }
@@ -162,8 +165,8 @@
 
     .cta-secondary {
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
-      color: var(--gray); text-decoration: none;
-      border: 1px solid rgba(13,13,11,0.2); padding: 0.875rem 1.75rem;
+      color: rgba(240,237,232,0.5); text-decoration: none;
+      border: 1px solid rgba(240,237,232,0.2); padding: 0.875rem 1.75rem;
       border-radius: 0; transition: color 0.15s, border-color 0.15s;
     }
     .cta-secondary:hover { color: var(--teal); border-color: var(--teal); }
@@ -535,10 +538,10 @@
     <div class="hero-right">
       <div class="hero-logo-wrap">
         <svg id="hero-svg" viewBox="0 0 420 64" style="width:100%;max-width:min(600px, 90vw);height:auto;">
-          <text id="h-lb"   y="44" font-size="32" font-weight="400" fill="#0D0D0B" opacity="0">[</text>
-          <text id="h-cyc"  y="44" text-anchor="middle" font-size="30" font-weight="500" fill="#0D0D0B" opacity="0"/>
-          <text id="h-wm"   y="44" text-anchor="middle" font-size="30" font-weight="500" letter-spacing=".04em" fill="#0D0D0B" opacity="0">ANAGRAMA</text>
-          <text id="h-rb"   y="44" font-size="32" font-weight="400" fill="#0D0D0B" opacity="0">]</text>
+          <text id="h-lb"   y="44" font-size="32" font-weight="400" fill="#F0EDE8" opacity="0">[</text>
+          <text id="h-cyc"  y="44" text-anchor="middle" font-size="30" font-weight="500" fill="#F0EDE8" opacity="0"/>
+          <text id="h-wm"   y="44" text-anchor="middle" font-size="30" font-weight="500" letter-spacing=".04em" fill="#F0EDE8" opacity="0">ANAGRAMA</text>
+          <text id="h-rb"   y="44" font-size="32" font-weight="400" fill="#F0EDE8" opacity="0">]</text>
           <text id="h-labs" y="44" font-size="19" font-weight="700" fill="#8E8E9A" opacity="0">Labs</text>
         </svg>
       </div>
