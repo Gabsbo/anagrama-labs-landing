@@ -10,7 +10,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><text y='38' font-family='DM Sans,sans-serif' font-size='40' font-weight='400' fill='%230D0D0B'>[A]</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,9 +20,10 @@
       --black:  #0D0D0B;
       --gray:   #6A6860;
       --line:   rgba(13,13,11,0.1);
-      --teal:   #3BBFAD;
-      --serif:  'Playfair Display', Georgia, serif;
+      --teal:   #8E8E9A;
+      --serif:  'Outfit', system-ui, sans-serif;
       --sans:   'DM Sans', system-ui, sans-serif;
+      --mono:   'IBM Plex Mono', 'Courier New', monospace;
     }
 
     html { font-size: 16px; scroll-behavior: smooth; }
@@ -69,9 +70,9 @@
     }
     .nav-logo:hover { opacity: 0.5; }
     .nl-br { font-size: 0.9375rem; font-weight: 400; }
-    .nl-wm { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em; }
-    .nl-lb { font-size: 0.625rem; font-weight: 700; color: var(--teal); margin-left: 4px; align-self: center; }
-    .nav-contact {
+    .nl-wm { font-family: var(--mono); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em; }
+    .nl-lb { font-family: var(--mono); font-size: 0.625rem; font-weight: 700; color: var(--teal); margin-left: 4px; align-self: center; }
+    .nav-contact { font-family: var(--mono);
       font-size: 0.8125rem; font-weight: 300; color: var(--gray);
       text-decoration: none; transition: color 0.15s;
     }
@@ -155,7 +156,7 @@
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
       color: var(--bg); background: var(--black);
       text-decoration: none; padding: 0.875rem 1.75rem;
-      border-radius: 99px; transition: opacity 0.2s;
+      border-radius: 0; transition: opacity 0.2s;
     }
     .cta-primary:hover { opacity: 0.7; }
 
@@ -163,11 +164,11 @@
       display: inline-block; font-size: 0.8125rem; font-weight: 400;
       color: var(--gray); text-decoration: none;
       border: 1px solid rgba(13,13,11,0.2); padding: 0.875rem 1.75rem;
-      border-radius: 99px; transition: color 0.15s, border-color 0.15s;
+      border-radius: 0; transition: color 0.15s, border-color 0.15s;
     }
     .cta-secondary:hover { color: var(--teal); border-color: var(--teal); }
 
-    .hero-location {
+    .hero-location { font-family: var(--mono);
       font-size: 0.6875rem;
       font-weight: 400;
       letter-spacing: 0.14em;
@@ -216,7 +217,7 @@
 
     .def-left {}
 
-    .def-label {
+    .def-label { font-family: var(--mono);
       font-size: 0.6875rem; font-weight: 400;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--gray); margin-bottom: 2.5rem;
@@ -256,7 +257,7 @@
       margin-bottom: 1.5rem;
     }
     .pillars-title { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3.75rem); font-weight: 400; }
-    .pillars-count { font-size: 0.75rem; color: var(--gray); }
+    .pillars-count { font-family: var(--mono); font-size: 0.75rem; color: var(--gray); }
 
     .events-grid {
       display: grid;
@@ -273,8 +274,8 @@
 
     .box {
       background: var(--bg);
-      border: 1px solid var(--black);
-      border-radius: 16px;
+      border: 2px solid var(--black);
+      border-radius: 0;
       padding: 2rem;
       display: flex;
       flex-direction: column;
@@ -293,17 +294,17 @@
     .box:hover .box-title,
     .box:hover .box-body,
     .box:hover .box-active,
-    .box:hover .box-tag { color: var(--black); border-color: var(--black); }
+    .box:hover .box-tag { font-family: var(--mono); color: var(--black); border-color: var(--black); }
 
     .box.tall { grid-row: span 2; min-height: 420px; }
     .box.wide { grid-column: span 2; }
 
-    .box-num { font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.12em; color: var(--teal); margin-bottom: 1.25rem; display: block; transition: color 0.25s; }
+    .box-num { font-family: var(--mono); font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.12em; color: var(--teal); margin-bottom: 1.25rem; display: block; transition: color 0.25s; }
     .box-title { font-family: var(--serif); font-size: clamp(1.25rem,2vw,1.75rem); font-weight: 400; line-height: 1.1; color: var(--black); transition: color 0.25s; }
     .box-body { font-size: 0.875rem; font-weight: 300; line-height: 1.7; color: var(--gray); margin-top: 0.75rem; transition: color 0.25s; }
     .box-active { font-size: 0.75rem; font-weight: 500; color: var(--teal); margin-top: 1.5rem; display: block; transition: color 0.25s; text-decoration: none; }
     .box-active:hover { text-decoration: underline; }
-    .box-tag { display: inline-block; font-size: 0.6875rem; padding: 0.3rem 0.75rem; border-radius: 99px; border: 1px solid rgba(13,13,11,0.2); color: var(--gray); margin-top: 1rem; transition: color 0.25s, border-color 0.25s; }
+    .box-tag { font-family: var(--mono); display: inline-block; font-size: 0.6875rem; padding: 0.3rem 0.75rem; border-radius: 99px; border: 1px solid rgba(13,13,11,0.2); color: var(--gray); margin-top: 1rem; transition: color 0.25s, border-color 0.25s; }
 
     /* ── WHO ─────────────────────────────────────────── */
     .who { border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
@@ -333,7 +334,7 @@
     }
     .who-card:hover { background: rgba(13,13,11,0.03); }
     .who-card:last-child { border-right: none; }
-    .who-index {
+    .who-index { font-family: var(--mono);
       font-size: 0.6875rem; font-weight: 400;
       letter-spacing: 0.1em; color: var(--teal);
       margin-bottom: 2.5rem; display: block;
@@ -357,7 +358,7 @@
       font-size: clamp(2rem,3.5vw,3.75rem);
       font-weight: 400;
     }
-    .events-label { font-size: 0.75rem; color: var(--gray); }
+    .events-label { font-family: var(--mono); font-size: 0.75rem; color: var(--gray); }
 
     .event-card {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -385,7 +386,7 @@
       line-height: 1.8; color: var(--gray); margin-bottom: 2rem;
     }
     .event-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
-    .event-tag {
+    .event-tag { font-family: var(--mono);
       font-size: 0.6875rem; font-weight: 300;
       letter-spacing: 0.06em; padding: 0.3rem 0.75rem;
       border: 1px solid rgba(13,13,11,0.15); color: var(--gray);
@@ -454,7 +455,7 @@
       flex-wrap: wrap; gap: 1rem;
       border-top: 1px solid var(--line);
     }
-    .footer-copy { font-size: 0.75rem; color: var(--gray); }
+    .footer-copy { font-family: var(--mono); font-size: 0.75rem; color: var(--gray); }
 
     /* ── REVEAL ──────────────────────────────────────── */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -538,14 +539,14 @@
           <text id="h-cyc"  y="44" text-anchor="middle" font-size="30" font-weight="500" fill="#0D0D0B" opacity="0"/>
           <text id="h-wm"   y="44" text-anchor="middle" font-size="30" font-weight="500" letter-spacing=".04em" fill="#0D0D0B" opacity="0">ANAGRAMA</text>
           <text id="h-rb"   y="44" font-size="32" font-weight="400" fill="#0D0D0B" opacity="0">]</text>
-          <text id="h-labs" y="44" font-size="19" font-weight="700" fill="#3BBFAD" opacity="0">Labs</text>
+          <text id="h-labs" y="44" font-size="19" font-weight="700" fill="#8E8E9A" opacity="0">Labs</text>
         </svg>
       </div>
       <h1 class="hero-headline">
         We activate<br>ecosystems.<br><em>We make<br>things happen.</em>
       </h1>
       <p class="hero-desc">
-        Anagrama Labs is an <em style="font-style:italic;color:#3BBFAD;">ecosystem engine</em> for emerging technology in Mexico and LATAM. We produce events, residencies, partnerships, and ecosystem intelligence for the institutions that want to connect with the builders shaping the future.
+        Anagrama Labs is an <em style="font-style:italic;color:#8E8E9A;">ecosystem engine</em> for emerging technology in Mexico and LATAM. We produce events, residencies, partnerships, and ecosystem intelligence for the institutions that want to connect with the builders shaping the future.
       </p>
     </div>
   </div>
@@ -579,7 +580,16 @@
         <h3 class="box-title">Curated<br>Events</h3>
         <p class="box-body">We produce and curate experiences that put the right people in the same room. Each event is a chapter in a larger narrative.</p>
       </div>
-      <a href="https://lu.ma/n1i32t84?tk=khvigQ" target="_blank" rel="noopener" class="box-active">↳ Marketers in the Arena × Stellar · CDMX · June 17</a>
+      <a href="https://lu.ma/n1i32t84?tk=khvigQ" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.5rem;
+               padding:0.75rem 1.25rem;border:2px solid var(--black);
+               font-family:var(--mono);font-size:0.75rem;font-weight:500;
+               color:var(--black);text-decoration:none;letter-spacing:0.04em;
+               transition:background 0.2s,color 0.2s;"
+        onmouseover="this.style.background='var(--black)';this.style.color='var(--bg)';"
+        onmouseout="this.style.background='transparent';this.style.color='var(--black)';">
+        Marketers in the Arena × Stellar · CDMX · June 17 &nbsp;→
+      </a>
     </div>
 
     <div class="box reveal">
@@ -660,6 +670,22 @@
 </section>
 
 <!-- CTA -->
+
+
+
+<!-- TRUSTED BY -->
+<section style="border-bottom:1px solid var(--line);padding:2.5rem 3rem;">
+  <p style="font-size:0.6875rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray);margin-bottom:2rem;">Trusted by</p>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2rem 3.5rem;">
+    <span style="font-family:var(--sans);font-size:1rem;font-weight:500;color:rgba(13,13,11,0.3);letter-spacing:0.01em;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='rgba(13,13,11,0.3)'">Stellar Foundation</span>
+    <span style="font-family:var(--sans);font-size:1rem;font-weight:500;color:rgba(13,13,11,0.3);letter-spacing:0.01em;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='rgba(13,13,11,0.3)'">Myosin</span>
+    <span style="font-family:var(--sans);font-size:1rem;font-weight:500;color:rgba(13,13,11,0.3);letter-spacing:0.01em;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='rgba(13,13,11,0.3)'">Catalaxia Ventures</span>
+    <span style="font-family:var(--sans);font-size:1rem;font-weight:500;color:rgba(13,13,11,0.3);letter-spacing:0.01em;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='rgba(13,13,11,0.3)'">IRIS Startup Lab</span>
+    <span style="font-family:var(--sans);font-size:1rem;font-weight:500;color:rgba(13,13,11,0.3);letter-spacing:0.01em;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='rgba(13,13,11,0.3)'">Universidad de la Libertad</span>
+    <span style="font-family:var(--sans);font-size:1rem;font-weight:500;color:rgba(13,13,11,0.3);letter-spacing:0.01em;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='rgba(13,13,11,0.3)'">Espacio</span>
+  </div>
+</section>
+
 <section class="cta-block" id="apply">
   <div class="cta-circle"></div>
   <h2 class="cta-headline reveal">If you belong<br>here, <em>you know.</em></h2>
@@ -721,6 +747,11 @@ function hmeasure(){
   LABSW = hmw('Labs',19,700)             || 44;
 }
 
+// Measure width of partial word
+function hmwPartial(txt){
+  return hmw(txt, 30, 500, '.04em') || (txt.length/8)*WW;
+}
+
 function hpos(innerW){
   const bspan = BW + innerW + BW;
   const total = bspan + LABS_GAP + LABSW;
@@ -745,47 +776,78 @@ function hfade(id,to,ms,cb){
   })(performance.now());
 }
 
-function hexpand(C,E,ms,cb){
-  const t0=performance.now();
-  (function tick(now){
-    const p=Math.min((now-t0)/ms,1);
-    const q=1-Math.pow(1-p,3);
-    const l=(a,b)=>a+(b-a)*q;
-    hsx('h-lb',l(C.lb,E.lb)); hsx('h-rb',l(C.rb,E.rb));
-    hsx('h-labs',l(C.lx,E.lx)); hsx('h-wm',E.wmx);
-    p<1?requestAnimationFrame(tick):cb&&cb();
-  })(performance.now());
-}
-
 function runHeroLogo(){
   hmeasure();
-  const C=hpos(LW+INNER_PAD*2), E=hpos(WW+INNER_PAD*2);
+  const C = hpos(LW+INNER_PAD*2);
+  const E = hpos(WW+INNER_PAD*2);
+
+  // Initial state — compact brackets, everything hidden
   hsx('h-lb',C.lb); hsx('h-rb',C.rb);
   hsx('h-cyc',C.cyccx); hsx('h-wm',E.wmx); hsx('h-labs',C.lx);
   ['h-lb','h-rb','h-cyc','h-wm','h-labs'].forEach(id=>hop(id,0));
+  hg('h-wm').textContent = '';
 
+  // ① Brackets + Labs appear
   setTimeout(()=>{
     hfade('h-lb',1,240); hfade('h-rb',1,240);
     setTimeout(()=>hfade('h-labs',1,280),150);
   },400);
 
+  // ② Cycle A→N→A→G→R→A→M→A with last hold
   setTimeout(()=>{
     let i=0;
     function next(){
-      if(i>=WORD.length){ setTimeout(doExpand,380); return; }
+      if(i>=WORD.length){ setTimeout(doExpand, 300); return; }
       hg('h-cyc').textContent=WORD[i];
       hsx('h-cyc',C.cyccx);
-      hfade('h-cyc',1,45,()=>{
-        setTimeout(()=>hfade('h-cyc',0,45,()=>{ i++; next(); }),
-          i===WORD.length-1?620:200);
+      hfade('h-cyc',1,40,()=>{
+        setTimeout(()=>hfade('h-cyc',0,40,()=>{ i++; next(); }),
+          i===WORD.length-1 ? 500 : 180);
       });
     }
     next();
   },900);
 
+  // ③ Expand brackets + type ANAGRAMA simultaneously
   function doExpand(){
     hop('h-cyc',0);
-    hexpand(C,E,720,()=>hfade('h-wm',1,420));
+    hop('h-wm',1);
+
+    const totalDur = 800; // total expand duration ms
+    const letterDur = totalDur / WORD.length; // time per letter
+    let typed = '';
+
+    // Type letters at even intervals across the expansion
+    WORD.forEach((letter, idx) => {
+      setTimeout(() => {
+        typed += letter;
+        hg('h-wm').textContent = typed;
+        // Reposition wordmark based on partial width
+        const partialW = hmwPartial(typed) + INNER_PAD*2;
+        const partialPos = hpos(partialW);
+        hg('h-wm').setAttribute('text-anchor', 'start');
+        // Keep left-anchored as it grows
+        hg('h-wm').setAttribute('x', partialPos.lb + BW);
+      }, idx * letterDur);
+    });
+
+    // Expand brackets simultaneously with typing
+    const t0 = performance.now();
+    (function tick(now){
+      const p = Math.min((now-t0)/totalDur, 1);
+      const q = 1-Math.pow(1-p, 3); // cubic ease-out
+      const l = (a,b) => a+(b-a)*q;
+      hsx('h-lb',  l(C.lb,  E.lb));
+      hsx('h-rb',  l(C.rb,  E.rb));
+      hsx('h-labs',l(C.lx,  E.lx));
+      if(p<1) requestAnimationFrame(tick);
+      else {
+        // Final snap — full wordmark centered
+        hg('h-wm').setAttribute('text-anchor','middle');
+        hg('h-wm').setAttribute('x', E.wmx);
+        hg('h-wm').textContent = 'ANAGRAMA';
+      }
+    })(performance.now());
   }
 }
 
