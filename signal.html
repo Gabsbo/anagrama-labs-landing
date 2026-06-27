@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Daily Signal — Anagrama Labs</title>
+  <meta name="description" content="Curated market & policy intelligence for the frontier of emerging technology in Mexico and LATAM. By Anagrama Labs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #F0EDE8;
+      --black:  #0D0D0B;
+      --gray:   #6A6860;
+      --line:   rgba(13,13,11,0.1);
+      --teal:   #8E8E9A;
+      --serif:  'Outfit', system-ui, sans-serif;
+      --sans:   'DM Sans', system-ui, sans-serif;
+      --mono:   'IBM Plex Mono', 'Courier New', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--black);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.75rem 3rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo {
+      display: flex; align-items: baseline; flex-shrink: 0;
+      text-decoration: none; color: var(--black);
+      font-family: var(--sans); transition: opacity 0.15s;
+    }
+    .nav-logo:hover { opacity: 0.5; }
+    .nl-br { font-family: var(--mono); font-size: 0.875rem; font-weight: 400; }
+    .nl-wm { font-family: var(--mono); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em; }
+    .nl-lb { font-family: var(--mono); font-size: 0.625rem; font-weight: 700; color: var(--teal); margin-left: 4px; align-self: center; }
+    .nav-back {
+      font-family: var(--mono); font-size: 0.75rem; font-weight: 400;
+      letter-spacing: 0.04em; color: var(--gray); text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--black); }
+
+    .wrap {
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 5vw, 5rem);
+      text-align: left;
+    }
+    .content { max-width: 640px; width: 100%; }
+
+    .label {
+      font-family: var(--mono); font-size: 0.6875rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal);
+      margin-bottom: 1.5rem;
+    }
+    .title {
+      font-family: var(--serif); font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 300; line-height: 1.0; letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .title em { font-style: italic; color: var(--teal); }
+    .desc {
+      font-size: clamp(0.9375rem, 1.4vw, 1.0625rem); font-weight: 300;
+      line-height: 1.8; color: var(--gray); max-width: 48ch;
+      margin-bottom: 2.5rem;
+    }
+    .meta-row {
+      display: flex; flex-wrap: wrap; gap: 0.75rem 2.5rem;
+      padding: 1.5rem 0; border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line); margin-bottom: 2.5rem;
+    }
+    .meta { display: flex; flex-direction: column; gap: 0.25rem; }
+    .meta-key { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); }
+    .meta-val { font-size: 0.875rem; color: var(--black); }
+
+    .signup {
+      display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: stretch;
+    }
+    .signup-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono); font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.04em; color: var(--bg); background: var(--black);
+      text-decoration: none; padding: 0.875rem 1.75rem;
+      border: 2px solid var(--black); transition: opacity 0.2s;
+    }
+    .signup-btn:hover { opacity: 0.8; }
+    .signup-btn.ghost { background: transparent; color: var(--black); }
+    .signup-btn.ghost:hover { opacity: 1; background: var(--black); color: var(--bg); }
+
+    footer {
+      padding: 2rem 3rem; border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-copy { font-family: var(--mono); font-size: 0.6875rem; color: var(--gray); letter-spacing: 0.04em; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .wrap { padding: 5rem 1.5rem 3rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; }
+      .signup-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo" aria-label="Anagrama Labs">
+    <span class="nl-br">[</span><span class="nl-wm">A</span><span class="nl-br">]</span><span class="nl-lb">Labs</span>
+  </a>
+  <a href="/" class="nav-back">← Back to Anagrama Labs</a>
+</nav>
+
+<div class="wrap">
+  <div class="content">
+    <p class="label">Ecosystem Intelligence</p>
+    <h1 class="title">The Daily<br><em>Signal.</em></h1>
+    <p class="desc">A daily digital newsletter on the frontier of emerging technology in Mexico and LATAM — the trends, regulation, and ideas shaping the space, distilled into a signal you can read in minutes.</p>
+
+    <div class="meta-row">
+      <div class="meta">
+        <span class="meta-key">Format</span>
+        <span class="meta-val">Digital newsletter</span>
+      </div>
+      <div class="meta">
+        <span class="meta-key">Cadence</span>
+        <span class="meta-val">Daily</span>
+      </div>
+      <div class="meta">
+        <span class="meta-key">Launch</span>
+        <span class="meta-val">Q3 2026</span>
+      </div>
+    </div>
+
+    <div class="signup">
+      <a href="https://tally.so/r/J9WVB7" target="_blank" rel="noopener" class="signup-btn">Join the waitlist &nbsp;→</a>
+      <a href="/" class="signup-btn ghost">Learn more</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 Anagrama Labs</span>
+  <span class="footer-copy">The Daily Signal</span>
+</footer>
+
+</body>
+</html>
