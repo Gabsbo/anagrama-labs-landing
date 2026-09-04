@@ -495,7 +495,7 @@
 
       /* Events */
       .events > div { padding: 1.5rem !important; }
-      .events-grid { grid-template-columns: 1fr; }
+      .events-grid { grid-template-columns: 1fr !important; }
       .events > div > div:last-child[style*="repeat(3"] { grid-template-columns: 1fr 1fr !important; }
 
       /* CTA */
@@ -669,7 +669,7 @@
       <h2 class="pillars-title">Upcoming events.</h2>
       <span class="pillars-count">CDMX</span>
     </div>
-    <div class="events-grid" style="grid-template-columns:1fr;">
+    <div class="events-grid" style="grid-template-columns:1fr 1fr;">
       <div class="box reveal" style="min-height:280px;">
         <div>
           <span class="box-num">Sep 10, 2026 · CDMX</span>
@@ -686,6 +686,35 @@
           onmouseout="this.style.background='transparent';this.style.color='var(--black)';">
           Register &nbsp;→
         </a>
+      </div>
+      <div class="box reveal" style="min-height:280px;">
+        <div>
+          <span class="box-num">Sep 23, 2026 · CDMX</span>
+          <h3 class="box-title">Builders &amp; Brews: Hack Edition</h3>
+          <p class="box-body">The local edition of Nebius &amp; Tavily's global hackathon — platform onboarding, technical workshops, team formation, and dedicated build time for developers.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.5rem;">
+          <a href="https://luma.com/tavily-av1t?tk=Kt5lES" target="_blank" rel="noopener"
+            style="display:inline-flex;align-items:center;gap:0.5rem;
+                   padding:0.75rem 1.25rem;border:2px solid var(--black);
+                   font-family:var(--mono);font-size:0.75rem;font-weight:500;
+                   color:var(--black);text-decoration:none;letter-spacing:0.04em;
+                   transition:background 0.2s,color 0.2s;"
+            onmouseover="this.style.background='var(--black)';this.style.color='var(--bg)';"
+            onmouseout="this.style.background='transparent';this.style.color='var(--black)';">
+            Register on Luma &nbsp;→
+          </a>
+          <a href="https://nebius.com/events/builders-and-brews" target="_blank" rel="noopener"
+            style="display:inline-flex;align-items:center;gap:0.5rem;
+                   padding:0.75rem 1.25rem;border:2px solid rgba(13,13,11,0.2);
+                   font-family:var(--mono);font-size:0.75rem;font-weight:500;
+                   color:var(--gray);text-decoration:none;letter-spacing:0.04em;
+                   transition:color 0.2s,border-color 0.2s;"
+            onmouseover="this.style.color='var(--black)';this.style.borderColor='var(--black)';"
+            onmouseout="this.style.color='var(--gray)';this.style.borderColor='rgba(13,13,11,0.2)';">
+            Learn more &nbsp;→
+          </a>
+        </div>
       </div>
     </div>
   </div>
