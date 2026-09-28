@@ -354,6 +354,11 @@
     .who-desc { font-size: 0.875rem; font-weight: 300; line-height: 1.85; color: var(--gray); }
 
     /* ── EVENTS ──────────────────────────────────────── */
+    /* Recap photo rows — widths proportional to each photo's aspect ratio so every photo in a row shares one height */
+    .recap-rows { display:flex; flex-direction:column; gap:10px; max-width:1400px; }
+    .recap-row { display:flex; gap:10px; align-items:stretch; }
+    .recap-row img { flex: var(--r) 1 0%; min-width:0; aspect-ratio: var(--r); object-fit:cover; border:2px solid var(--black); display:block; }
+
     .events { border-bottom: 1px solid var(--line); }
     .events-header {
       padding: 4rem 3rem; border-bottom: 1px solid var(--line);
@@ -499,6 +504,12 @@
       /* Events */
       .events > div { padding: 1.5rem !important; }
       .events-grid { grid-template-columns: 1fr !important; }
+      .events > div > div[style*="justify-content:space-between"] { flex-direction:column; gap:0.375rem; }
+      .recap-row--stack { display:grid; grid-template-columns:1fr; }
+      .recap-row--stack img { flex:none; width:100%; }
+      .recap-row--grid { display:grid; grid-template-columns:1fr 1fr; }
+      .recap-row--grid img { flex:none; width:100%; aspect-ratio:3/5; }
+      .recap-row--grid img:last-child:nth-child(odd) { grid-column:span 2; aspect-ratio:4/3; object-position:center 35%; }
       .events > div > div:last-child[style*="repeat(3"] { grid-template-columns: 1fr 1fr !important; }
 
       /* CTA */
@@ -602,10 +613,22 @@
     <div class="box reveal">
       <div>
         <span class="box-num">02</span>
-        <h3 class="box-title">Residencia de<br>Innovación</h3>
+        <h3 class="box-title">Residencia de<br>Founders</h3>
         <p class="box-body">Residencia para founders de Blockchain + AI. 6 proyectos, 6 meses. Mentoría de alto nivel.</p>
       </div>
-      <span class="box-tag">Lanzamiento Sep 2026</span>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;">
+        <span class="box-tag">Anuncio · noviembre 2026</span>
+        <a href="https://tally.so/r/J9WVB7" target="_blank" rel="noopener"
+          style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1rem;
+                 padding:0.75rem 1.25rem;border:2px solid var(--black);
+                 font-family:var(--mono);font-size:0.75rem;font-weight:500;
+                 color:var(--black);text-decoration:none;letter-spacing:0.04em;
+                 transition:background 0.2s,color 0.2s;align-self:flex-start;"
+          onmouseover="this.style.background='var(--black)';this.style.color='var(--bg)';"
+          onmouseout="this.style.background='transparent';this.style.color='var(--black)';">
+          Unirse a la lista de espera &nbsp;→
+        </a>
+      </div>
     </div>
 
     <div class="box wide reveal">
@@ -632,6 +655,16 @@
         <h3 class="box-title">Consultoría en GTM Strategy</h3>
         <p class="box-body">Ayudamos a instituciones y corporativos a diseñar y ejecutar estrategia de entrada al mercado para tecnología de frontera en México y LATAM — insights de mercado, diseño de producto, estrategia legal y posicionamiento de mercado.</p>
       </div>
+      <a href="https://calendly.com/hello-anagramalabs/1-1-30-min-meeting" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.5rem;
+               padding:0.75rem 1.25rem;border:2px solid var(--black);
+               font-family:var(--mono);font-size:0.75rem;font-weight:500;
+               color:var(--black);text-decoration:none;letter-spacing:0.04em;
+               transition:background 0.2s,color 0.2s;align-self:flex-start;"
+        onmouseover="this.style.background='var(--black)';this.style.color='var(--bg)';"
+        onmouseout="this.style.background='transparent';this.style.color='var(--black)';">
+        Agendar una reunión &nbsp;→
+      </a>
     </div>
 
   </div>
@@ -665,42 +698,65 @@
   </div>
 </section>
 
-<!-- EVENTS -->
-<section class="events" id="events">
+<!-- FOUNDERS CLUB -->
+<section class="events" id="founders-club">
   <div style="padding:3rem;">
     <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.5rem;">
-      <h2 class="pillars-title">Próximos eventos.</h2>
-      <span class="pillars-count">CDMX</span>
+      <h2 class="pillars-title">Founders Club.</h2>
+      <span class="pillars-count">Red</span>
     </div>
     <div class="events-grid" style="grid-template-columns:1fr;">
       <div class="box reveal" style="min-height:280px;">
         <div>
-          <span class="box-num">23 de septiembre, 2026 · CDMX</span>
-          <h3 class="box-title">Builders &amp; Brews: Hack Edition</h3>
-          <p class="box-body">La edición local del hackathon global de Nebius &amp; Tavily — onboarding en la plataforma, workshops técnicos, formación de equipos y tiempo dedicado de construcción para desarrolladores.</p>
+          <span class="box-num">Invitación</span>
+          <h3 class="box-title">El anfitrión no existe.</h3>
+          <p class="box-body">Una invitación a ser parte de una red curada por humanos y conectada por un agente de AI. Encuentra a tu próximo VC, co-founder, aliado o mentor.</p>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.5rem;">
-          <a href="https://luma.com/tavily-av1t?tk=Kt5lES" target="_blank" rel="noopener"
-            style="display:inline-flex;align-items:center;gap:0.5rem;
-                   padding:0.75rem 1.25rem;border:2px solid var(--black);
-                   font-family:var(--mono);font-size:0.75rem;font-weight:500;
-                   color:var(--black);text-decoration:none;letter-spacing:0.04em;
-                   transition:background 0.2s,color 0.2s;"
-            onmouseover="this.style.background='var(--black)';this.style.color='var(--bg)';"
-            onmouseout="this.style.background='transparent';this.style.color='var(--black)';">
-            Registrarse en Luma &nbsp;→
-          </a>
-          <a href="https://nebius.com/events/builders-and-brews" target="_blank" rel="noopener"
-            style="display:inline-flex;align-items:center;gap:0.5rem;
-                   padding:0.75rem 1.25rem;border:2px solid rgba(13,13,11,0.2);
-                   font-family:var(--mono);font-size:0.75rem;font-weight:500;
-                   color:var(--gray);text-decoration:none;letter-spacing:0.04em;
-                   transition:color 0.2s,border-color 0.2s;"
-            onmouseover="this.style.color='var(--black)';this.style.borderColor='var(--black)';"
-            onmouseout="this.style.color='var(--gray)';this.style.borderColor='rgba(13,13,11,0.2)';">
-            Ver más &nbsp;→
-          </a>
-        </div>
+        <a href="https://tally.so/r/J9WVB7" target="_blank" rel="noopener"
+          style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.5rem;
+                 padding:0.75rem 1.25rem;border:2px solid var(--black);
+                 font-family:var(--mono);font-size:0.75rem;font-weight:500;
+                 color:var(--black);text-decoration:none;letter-spacing:0.04em;
+                 transition:background 0.2s,color 0.2s;align-self:flex-start;"
+          onmouseover="this.style.background='var(--black)';this.style.color='var(--bg)';"
+          onmouseout="this.style.background='transparent';this.style.color='var(--black)';">
+          Únete a la red &nbsp;→
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS (past) -->
+<section class="events" id="events">
+  <div style="padding:3rem 3rem 1.5rem;">
+    <p style="font-family:var(--mono);font-size:0.6875rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray);">Eventos pasados</p>
+  </div>
+
+  <!-- RECAP: Builders & Brews -->
+  <div style="padding:0 3rem 3rem;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.5rem;">
+      <h2 class="pillars-title">Builders &amp; Brews.</h2>
+      <span class="pillars-count">Recap · 23 de septiembre</span>
+    </div>
+    <p class="box-body" style="max-width:60ch;margin-bottom:1.5rem;color:var(--gray);">Builders &amp; Brews: Hack Edition — la edición CDMX del hackathon global de Nebius y Tavily. Desarrolladores se reunieron en Abraxa Hacker Lab para workshops de Nebius y tiempo dedicado a construir, con Ricky Johnson, DevRel de Tavily, presente.</p>
+    <a href="https://nebius.com/events/builders-and-brews" target="_blank" rel="noopener"
+      style="display:inline-flex;align-items:center;gap:0.5rem;
+             padding:0.75rem 1.25rem;border:2px solid rgba(13,13,11,0.2);
+             font-family:var(--mono);font-size:0.75rem;font-weight:500;
+             color:var(--gray);text-decoration:none;letter-spacing:0.04em;
+             transition:color 0.2s,border-color 0.2s;"
+      onmouseover="this.style.color='var(--black)';this.style.borderColor='var(--black)';"
+      onmouseout="this.style.color='var(--gray)';this.style.borderColor='rgba(13,13,11,0.2)';">
+      Página del evento &nbsp;→
+    </a>
+    <div class="recap-rows" style="margin-top:1.5rem;">
+      <div class="recap-row recap-row--grid">
+        <img src="/assets/nebius-1.jpg" alt="Builders &amp; Brews en Abraxa Hacker Lab" style="--r:0.5627" loading="lazy">
+        <img src="/assets/nebius-2.jpg" alt="Pantalla y ponente en Builders &amp; Brews" style="--r:0.6488" loading="lazy">
+        <img src="/assets/nebius-3.jpg" alt="Ponente en Builders &amp; Brews" style="--r:0.5627" loading="lazy">
+        <img src="/assets/nebius-4.jpg" alt="Asistentes en Builders &amp; Brews" style="--r:0.5627" loading="lazy">
+        <img src="/assets/nebius-5.jpg" alt="Asistentes en Builders &amp; Brews" style="--r:0.5627" loading="lazy">
       </div>
     </div>
   </div>
@@ -711,7 +767,9 @@
       <h2 class="pillars-title">Radical Innovation Summit.</h2>
       <span class="pillars-count">Recap · 10 de septiembre</span>
     </div>
-    <p class="box-body" style="max-width:60ch;margin-bottom:1.5rem;color:var(--gray);">Casa llena en la Universidad de la Libertad — founders, instituciones y voces globales en la tecnología de frontera, coronado con el lanzamiento de la Cohorte 1 de nuestra Residencia de Innovación.</p>
+    <p class="box-body" style="max-width:60ch;margin-bottom:1rem;color:var(--gray);">El 10 de septiembre, la Universidad de la Libertad fue sede del Radical Innovation Summit 2026, con Anagrama Labs como organización aliada. El día abrió con Tobias Peyerl, Lead Strategic Intelligence en OpenAI, y reunió a speakers internacionales y líderes del ecosistema con founders, inversionistas y estudiantes — entre ellos Alberto Tanus, CEO de Grupo Elektra, sobre cómo construir ITALIKA desde dentro de un corporativo tradicional, y José Salinas sobre la evolución de la música. Charlas, workshops y fireside chats donde las ideas se presentaron, se cuestionaron y avanzaron.</p>
+    <p class="box-body" style="max-width:60ch;margin-bottom:1rem;color:var(--gray);">El evento principal fue la final de Phoenix Fire, liderada por Iris StartUp Lab. Pronos, una startup nacida en Mazatlán y fundada por Simon Lacy y Francisco Madero, ganó el primer lugar con su plataforma mexicana de mercados de predicción.</p>
+    <p class="box-body" style="max-width:60ch;margin-bottom:1rem;color:var(--black);">RIS26 terminó. Lo que se construyó ese día, no.</p>
     <a href="https://radicalinnovationsummit.com" target="_blank" rel="noopener"
       style="display:inline-flex;align-items:center;gap:0.5rem;
              padding:0.75rem 1.25rem;border:2px solid rgba(13,13,11,0.2);
@@ -722,6 +780,16 @@
       onmouseout="this.style.color='var(--gray)';this.style.borderColor='rgba(13,13,11,0.2)';">
       Ver más &nbsp;→
     </a>
+    <div class="recap-rows" style="margin-top:1.5rem;">
+      <div class="recap-row recap-row--stack">
+        <img src="/assets/ris-1.jpg" alt="Tobias Peyerl, OpenAI, en Radical Innovation Summit" style="--r:0.8" loading="lazy">
+        <img src="/assets/ris-2.jpg" alt="Asistentes y speakers de Radical Innovation Summit" style="--r:1.7766" loading="lazy">
+      </div>
+      <div class="recap-row recap-row--stack">
+        <img src="/assets/ris-3.jpg" alt="Networking en Radical Innovation Summit" style="--r:1.5005" loading="lazy">
+        <img src="/assets/ris-4.jpg" alt="Ganadores de la final de Phoenix Fire" style="--r:0.8" loading="lazy">
+      </div>
+    </div>
   </div>
 
   <!-- RECAP: Marketers in the Arena -->
@@ -756,6 +824,8 @@
     <span style="font-family:var(--sans);font-size:1rem;font-weight:500;color:rgba(13,13,11,0.4);letter-spacing:0.01em;transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='rgba(13,13,11,0.4)'">Catalaxia Ventures</span>
     <img src="/assets/logo-iris.png" alt="IRIS Startup Lab" style="height:32px;width:auto;opacity:0.65;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.65">
     <img src="/assets/logo-espacio.png" alt="Espacio" style="height:26px;width:auto;opacity:0.65;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.65">
+    <img src="/assets/logo-nebius.png" alt="Nebius" style="height:22px;width:auto;opacity:0.65;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.65">
+    <img src="/assets/logo-tavily.png" alt="Tavily" style="height:26px;width:auto;opacity:0.65;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.65">
   </div>
 </section>
 
